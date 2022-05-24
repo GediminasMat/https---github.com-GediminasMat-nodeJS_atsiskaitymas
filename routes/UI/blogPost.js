@@ -12,8 +12,11 @@ blogPost.post('/', async (req, res) => {
       await con.query(`INSERT INTO blog (title, content, author_id, created_at)VALUES (?,?,?,?) `,
         [rb.title, rb.content, req.token.id, new Date().toLocaleString('LT')]);
       res.redirect('/');
-    } else {return res.send({ msg: 'You must be logged in to post' });
-  }} catch (err) {res.status(500).send({ err: err.message });
+    } else {
+      return res.send({ msg: 'You must be logged in to post' });
+    }
+  } catch (err) {
+    res.status(500).send({ err: err.message });
   }
 });
 

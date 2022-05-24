@@ -3,19 +3,22 @@ import con from '../../sql_connection.js';
 
 const router = express.Router();
 
-router.get('/', async (req, res) =>{
-  try{ 
+router.get('/', async (req, res) => {
+  try {
     const [data] = await con.query(`SELECT * FROM patikrinimas.user`);
     res.send(data);
-  } catch (err) { res.status(400).send({ err: err.message });
-}
+  } catch (err) {
+    res.status(400).send({ err: err.message });
+  }
 });
 
 router.get('/:id?', async (req, res) => {
-  try {const [data] = await con.query(`SELECT * FROM patikrinimas.user WHERE id = ?`, [req.params.id]);
-  res.send(data);
-} catch (err) { res.status(400).send({ err: err.message });
-}
+  try {
+    const [data] = await con.query(`SELECT * FROM patikrinimas.user WHERE id = ?`, [req.params.id]);
+    res.send(data);
+  } catch (err) {
+    res.status(400).send({ err: err.message });
+  }
 });
 
 export default router;
