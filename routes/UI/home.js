@@ -28,7 +28,7 @@ router.delete('/:id', async (req, res) => {
     if (await isLoggedIn(req)) {
       await con.query(`DELETE FROM bars WHERE ID = ?`, [req.params.id]);
       res.redirect('/');
-    } else {res.send({ err: 'Error 404' });
+    } else {res.send({ err: 'Error 404 Page not found' });
   }
   } catch (err){res.status(400).send({ err: err.message });
 }
