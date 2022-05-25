@@ -2,7 +2,7 @@ import express from 'express';
 import Joi from 'joi';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import con from '../sql_connection.js';
+import con from '../../sql_connection.js';
 
 const regRouter = express.Router();
 const jwtSecret = process.env.JWT_SECRET;

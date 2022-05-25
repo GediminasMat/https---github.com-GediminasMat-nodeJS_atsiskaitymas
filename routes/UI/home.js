@@ -1,6 +1,6 @@
 import express from 'express';
-import con from '../sql_connection.js';
-import isLoggedIn from '../isLoggedIn.js';
+import con from '../../sql_connection.js';
+import isLoggedIn from '../../loggedIn.js';
 
 const router = express.Router();
 
